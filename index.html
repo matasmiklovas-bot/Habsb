@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Volleyball</title>
+<meta name="description" content="Volleyball: court, net, team, positions, skills and volleyball today. A presentation in six topics.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Volleyball">
+<meta property="og:description" content="A presentation in six topics">
+<meta property="og:image" content="https://rawcdn.githack.com/matasmiklovas-bot/Habsb/v1/assets/preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'> <circle cx='32' cy='32' r='29' fill='%231D4ED8'/><path d='M32 32 Q42 20 32 3 M32 32 Q37 47 58 47 M32 32 Q17 29 6 47' fill='none' stroke='%23F2EDE3' stroke-width='5' stroke-linecap='round'/><circle cx='32' cy='32' r='29' fill='none' stroke='%23F05A22' stroke-width='4'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap">
+<link rel="preload" as="image" href="assets/cover-player.webp">
+<style>
+html,body{margin:0;height:100%;background:#0B0B0C;overflow:hidden;-webkit-tap-highlight-color:transparent}
+body{opacity:0;transition:opacity .5s ease}
+body.ready{opacity:1}
+body.idle,body.idle *{cursor:none!important}
+#view{position:fixed;left:0;top:0;right:0;bottom:0;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;
+  -webkit-user-select:none;user-select:none;background:#0B0B0C;contain:layout paint}
+#stage>section{position:absolute;left:0;top:0;width:1920px;height:1080px;margin:0;overflow:hidden;box-sizing:border-box;visibility:hidden}
+#stage>section.on{visibility:visible}
+#stage *{box-sizing:border-box}
+#stage p,#stage h1,#stage h2,#stage h3{margin:0}
+#stage img,#stage video,#stage iframe,#stage svg{display:block;max-width:none}
+#ui{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:10;
+  display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;background:rgba(18,18,18,.74);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 8px 28px rgba(0,0,0,.28);
+  color:#F2EDE3;font:500 13px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.4px;
+  opacity:0;transform:translateY(8px);transition:opacity .3s ease,transform .3s ease}
+#ui.show{opacity:1;transform:none}
+#ui button{all:unset;cursor:pointer;height:34px;min-width:34px;padding:0 4px;box-sizing:border-box;border-radius:999px;
+  display:grid;place-items:center;color:inherit}
+#ui button:hover{background:rgba(255,255,255,.12)}
+#ui button:focus-visible{outline:2px solid #F05A22;outline-offset:1px}
+#ui button.on{color:#F05A22}
+#ui svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#ui .count{min-width:66px;text-align:center;font-variant-numeric:tabular-nums}
+#ui .sep{width:1px;height:18px;background:rgba(255,255,255,.18);margin:0 4px}
+#ui .hint{padding:0 10px 0 12px;color:#C9C4BA;white-space:nowrap;transition:opacity .4s,max-width .5s;max-width:260px;overflow:hidden}
+#ui .hint.gone{opacity:0;max-width:0;padding:0}
+#notes{position:fixed;left:50%;bottom:76px;z-index:10;width:min(860px,calc(100vw - 32px));max-height:42vh;overflow:auto;
+  box-sizing:border-box;padding:18px 22px 20px;border-radius:16px;background:rgba(18,18,18,.93);color:#ECE8E0;
+  font:400 16px/1.55 Archivo,system-ui,sans-serif;box-shadow:0 12px 40px rgba(0,0,0,.35);
+  opacity:0;transform:translate(-50%,12px);pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+#notes.open{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#notes h2{margin:0 0 8px;font:700 12px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:1.6px;text-transform:uppercase;color:#F05A22}
+#notes p{margin:0}
+#ui .ht{display:none}
+@media (hover:none){#ui{opacity:.9;transform:none}#ui .hm{display:none}#ui .ht{display:inline}}
+@media (max-width:520px){#ui .hm{display:none}#ui .ht{display:inline}}
+@media (prefers-reduced-motion:reduce){body{transition:none}}
+</style>
+</head>
+<body>
+<div id="view"><div id="stage" role="region" aria-roledescription="slideshow" aria-label="Volleyball">
+<section id="cover" data-transition="fade" style="background:#1D4ED8;color:#F2EDE3;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<p style="position:absolute;left:128px;top:96px;width:1000px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#C9D5FF" data-build-in="fade 1 auto">A presentation in six topics</p>
+<p style="position:absolute;left:1392px;top:96px;width:400px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;text-align:right;color:#C9D5FF" data-build-in="fade 1 auto">2026</p>
+<p style="position:absolute;left:104px;top:196px;width:1700px;font-family:'Archivo', Arial, sans-serif;font-size:370px;font-weight:900;line-height:0.86;letter-spacing:-16px;text-transform:uppercase;color:#F2EDE3" data-build-in="rise 1 auto">Volley</p>
+<p style="position:absolute;left:104px;top:514px;width:1700px;font-family:'Archivo', Arial, sans-serif;font-size:370px;font-weight:900;line-height:0.86;letter-spacing:-16px;text-transform:uppercase;color:#F2EDE3" data-build-in="rise 2 auto">ball</p>
+<img src="assets/cover-player.webp" alt="A volleyball player tosses the ball up to serve" style="position:absolute;left:1010px;top:14px;width:705px;height:1066px;object-fit:contain" data-build-in="rise 3 auto">
+<p style="position:absolute;left:128px;top:916px;width:900px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:1px;line-height:1.5;color:#F2EDE3" data-build-in="fade 4 auto">Court · Net · Team · Positions<br>Skills · Volleyball today</p>
+<aside>Hello everyone! My presentation is about volleyball. I will talk about six things: the court, the net, the team, the player positions, the basic skills, and volleyball in Lithuania, Europe and the world. Photo: “Serve during volleyball match” by Zorro2212, CC BY-SA 3.0, Wikimedia Commons (background removed).</aside>
+</section>
+<section id="contents" data-transition="push" style="background:#F2EDE3;color:#121212;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<p style="position:absolute;left:128px;top:96px;width:1000px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#6B6A66" data-build-in="fade 1 auto">Contents</p>
+<p style="position:absolute;left:1392px;top:96px;width:400px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;text-align:right;color:#6B6A66" data-build-in="fade 1 auto">Volleyball</p>
+<p style="position:absolute;left:122px;top:150px;width:1640px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;color:#121212" data-build-in="left 1 auto">Six topics</p>
+<p style="position:absolute;left:128px;top:300px;width:300px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:3px;line-height:1.3;text-transform:uppercase;color:#121212">Net</p>
+<svg aria-label="Half of a volleyball court used as a grid for the six topics" viewBox="0 0 1920 1080" width="1920" height="1080" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-build-in="fade 1 auto"><rect x="128" y="344" width="1664" height="606" fill="none" stroke="#121212" stroke-width="4"/><line x1="128" y1="647" x2="1792" y2="647" stroke="#121212" stroke-width="2"/><line x1="682.7" y1="344" x2="682.7" y2="950" stroke="#121212" stroke-opacity="0.28" stroke-width="2" stroke-dasharray="8 9"/><line x1="1237.3" y1="344" x2="1237.3" y2="950" stroke="#121212" stroke-opacity="0.28" stroke-width="2" stroke-dasharray="8 9"/><line x1="96" y1="338" x2="1824" y2="338" stroke="#121212" stroke-width="10"/><circle cx="96" cy="338" r="9" fill="#121212"/><circle cx="1824" cy="338" r="9" fill="#121212"/></svg>
+<p style="position:absolute;left:164px;top:382px;width:300px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#F05A22" data-build-in="rise 1 auto">01</p>
+<p style="position:absolute;left:164px;top:520px;width:480px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.5px;color:#121212" data-build-in="rise 1 auto">Court dimensions</p>
+<p style="position:absolute;left:719px;top:382px;width:300px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#F05A22" data-build-in="rise 2 auto">02</p>
+<p style="position:absolute;left:719px;top:520px;width:480px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.5px;color:#121212" data-build-in="rise 2 auto">Net height</p>
+<p style="position:absolute;left:1273px;top:382px;width:300px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#F05A22" data-build-in="rise 3 auto">03</p>
+<p style="position:absolute;left:1273px;top:520px;width:480px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.5px;color:#121212" data-build-in="rise 3 auto">Team composition</p>
+<p style="position:absolute;left:164px;top:685px;width:300px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#F05A22" data-build-in="rise 4 auto">04</p>
+<p style="position:absolute;left:164px;top:823px;width:480px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.5px;color:#121212" data-build-in="rise 4 auto">Player positions and responsibilities</p>
+<p style="position:absolute;left:719px;top:685px;width:300px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#F05A22" data-build-in="rise 5 auto">05</p>
+<p style="position:absolute;left:719px;top:823px;width:480px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.5px;color:#121212" data-build-in="rise 5 auto">Basic technical skills</p>
+<p style="position:absolute;left:1273px;top:685px;width:300px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#F05A22" data-build-in="rise 6 auto">06</p>
+<p style="position:absolute;left:1273px;top:823px;width:480px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.5px;color:#121212" data-build-in="rise 6 auto">Lithuania, Europe and the world</p>
+<aside>Here are my six topics, laid out like the six zones of a volleyball court: first the court and the net, then the team and the positions, then the basic skills, and at the end volleyball in Lithuania, Europe and the world.</aside>
+</section>
+<section id="court" data-transition="magic" style="background:#121212;color:#F2EDE3;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<video poster="assets/court-still.jpg" muted loop playsinline preload="auto" aria-label="Drone view from directly above a volleyball court during a game" style="position:absolute;left:340px;top:302px;width:1240px;height:698px;object-fit:cover" data-build-in="scale 1 auto"><source src="assets/court.mp4" type="video/mp4"><source src="assets/court.webm" type="video/webm"></video>
+<div style="position:absolute;left:340px;top:302px;width:1240px;height:92px;background:linear-gradient(180deg, #121212 0%, rgba(18,18,18,0) 100%)"></div>
+<div style="position:absolute;left:340px;top:906px;width:1240px;height:94px;background:linear-gradient(0deg, #121212 0%, rgba(18,18,18,0) 100%)"></div>
+<div style="position:absolute;left:340px;top:302px;width:108px;height:698px;background:linear-gradient(90deg, #121212 0%, rgba(18,18,18,0) 100%)"></div>
+<div style="position:absolute;left:1472px;top:302px;width:108px;height:698px;background:linear-gradient(270deg, #121212 0%, rgba(18,18,18,0) 100%)"></div>
+<p style="position:absolute;left:128px;top:96px;width:1000px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#A3A3A0" data-build-in="fade 1 auto">01 — Court</p>
+<p style="position:absolute;left:1392px;top:96px;width:400px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;text-align:right;color:#A3A3A0" data-build-in="fade 1 auto">01 / 06</p>
+<p style="position:absolute;left:122px;top:150px;width:1640px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;color:#F2EDE3" data-build-in="left 1 auto">Court dimensions</p>
+<div style="position:absolute;left:958px;top:388px;width:6px;height:524px;background:#F05A22;box-shadow:0 0 18px rgba(240,90,34,0.8)" data-build-in="fade 1 auto"></div>
+<div style="position:absolute;left:954px;top:381px;width:14px;height:14px;border-radius:50%;background:#F05A22" data-build-in="fade 1 auto"></div>
+<div style="position:absolute;left:954px;top:905px;width:14px;height:14px;border-radius:50%;background:#F05A22" data-build-in="fade 1 auto"></div>
+<p style="position:absolute;left:901px;top:924px;width:120px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:3px;line-height:1.2;text-transform:uppercase;text-align:center;color:#F05A22" data-build-in="fade 1 auto">Net</p>
+<div style="position:absolute;left:793px;top:400px;width:335px;height:500px;background:rgba(240,90,34,0.14)" data-build-in="fade 2 auto"></div>
+<div style="position:absolute;left:791px;top:400px;width:0px;height:500px;border-left:3px dashed #F2EDE3" data-build-in="fade 2 auto"></div>
+<div style="position:absolute;left:1126px;top:400px;width:0px;height:500px;border-left:3px dashed #F2EDE3" data-build-in="fade 2 auto"></div>
+<p style="position:absolute;left:827px;top:414px;width:100px;font-family:'Archivo', Arial, sans-serif;font-size:36px;font-weight:800;line-height:1.25;text-align:center;color:#F2EDE3;background:rgba(18,18,18,0.82)" data-build-in="fade 2 auto">3 m</p>
+<p style="position:absolute;left:995px;top:414px;width:100px;font-family:'Archivo', Arial, sans-serif;font-size:36px;font-weight:800;line-height:1.25;text-align:center;color:#F2EDE3;background:rgba(18,18,18,0.82)" data-build-in="fade 2 auto">3 m</p>
+<div style="position:absolute;left:456px;top:350px;width:1008px;height:2px;background:#F2EDE3" data-build-in="left 3 auto"></div>
+<div style="position:absolute;left:455px;top:339px;width:2px;height:24px;background:#F2EDE3" data-build-in="left 3 auto"></div>
+<div style="position:absolute;left:1463px;top:339px;width:2px;height:24px;background:#F2EDE3" data-build-in="left 3 auto"></div>
+<p style="position:absolute;left:890px;top:326px;width:140px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:800;line-height:1.2;text-align:center;color:#F2EDE3;background:#121212" data-build-in="left 3 auto">18 m</p>
+<div style="position:absolute;left:1524px;top:400px;width:2px;height:500px;background:#F2EDE3" data-build-in="drop 4 auto"></div>
+<div style="position:absolute;left:1514px;top:399px;width:22px;height:2px;background:#F2EDE3" data-build-in="drop 4 auto"></div>
+<div style="position:absolute;left:1514px;top:899px;width:22px;height:2px;background:#F2EDE3" data-build-in="drop 4 auto"></div>
+<p style="position:absolute;left:1478px;top:626px;width:94px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:800;line-height:1.2;text-align:center;color:#F2EDE3;background:#121212" data-build-in="drop 4 auto">9 m</p>
+<p style="position:absolute;left:128px;top:548px;width:300px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#F05A22" data-build-in="fade 5 auto">Free zone</p>
+<p style="position:absolute;left:128px;top:584px;width:300px;font-family:'Archivo', Arial, sans-serif;font-size:30px;font-weight:500;line-height:1.3;color:#F2EDE3" data-build-in="fade 5 auto">min. 3 m wide</p>
+<p style="position:absolute;left:128px;top:700px;width:300px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#F05A22" data-build-in="fade 6 auto">Lines</p>
+<p style="position:absolute;left:128px;top:736px;width:300px;font-family:'Archivo', Arial, sans-serif;font-size:30px;font-weight:500;line-height:1.3;color:#F2EDE3" data-build-in="fade 6 auto">5 cm wide. A ball on the line is in.</p>
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:rgba(242,237,227,0.16)"></div>
+<div id="progress" style="position:absolute;left:0px;top:0px;width:320px;height:8px;background:#F05A22"></div>
+<aside>This is a real volleyball court, filmed from above by a drone. The court is 18 metres long and 9 metres wide. The net, in orange, splits it into two squares of 9 by 9 metres. Three metres from the net on each side is the attack line; back-row players may not jump and attack in front of it. Around the court there is a free zone of at least 3 metres, and above it at least 7 metres of free space. The lines are 5 centimetres wide and belong to the court, so a ball on the line is in. Video: Mixkit (free licence).</aside>
+</section>
+<section id="net" data-transition="magic" style="background:#F2EDE3;color:#121212;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<svg aria-label="Side view of a volleyball net between two posts, with antennas at both ends" viewBox="0 0 1920 1080" width="1920" height="1080" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-build-in="fade 1 auto"><defs><pattern id="mesh" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 0 H22 M0 0 V22" stroke="#121212" stroke-opacity="0.2" stroke-width="2" fill="none"/></pattern></defs><line x1="980" y1="900" x2="1792" y2="900" stroke="#121212" stroke-opacity="0.45" stroke-width="3"/><rect x="1034" y="470" width="12" height="430" fill="#121212"/><rect x="1694" y="470" width="12" height="430" fill="#121212"/><rect x="1062" y="487" width="616" height="170" fill="url(#mesh)"/><rect x="1062" y="487" width="616" height="10" fill="#FFFFFF" stroke="#121212" stroke-width="2"/><rect x="1062" y="652" width="616" height="5" fill="#121212" fill-opacity="0.55"/><line x1="1046" y1="490" x2="1062" y2="490" stroke="#121212" stroke-width="2"/><line x1="1678" y1="490" x2="1694" y2="490" stroke="#121212" stroke-width="2"/><g stroke-linecap="butt"><line x1="1080" y1="351" x2="1080" y2="657" stroke="#121212" stroke-width="9"/><line x1="1080" y1="352" x2="1080" y2="656" stroke="#FFFFFF" stroke-width="5"/><line x1="1080" y1="352" x2="1080" y2="656" stroke="#E5322D" stroke-width="5" stroke-dasharray="17 17"/><line x1="1660" y1="351" x2="1660" y2="657" stroke="#121212" stroke-width="9"/><line x1="1660" y1="352" x2="1660" y2="656" stroke="#FFFFFF" stroke-width="5"/><line x1="1660" y1="352" x2="1660" y2="656" stroke="#E5322D" stroke-width="5" stroke-dasharray="17 17"/></g></svg>
+<p style="position:absolute;left:128px;top:96px;width:1000px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#6B6A66" data-build-in="fade 1 auto">02 — The net</p>
+<p style="position:absolute;left:1392px;top:96px;width:400px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;text-align:right;color:#6B6A66" data-build-in="fade 1 auto">02 / 06</p>
+<p style="position:absolute;left:122px;top:150px;width:1640px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;color:#121212" data-build-in="left 1 auto">Net height</p>
+<svg viewBox="0 0 1920 1080" width="1920" height="1080" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-build-in="left 2 auto"><line x1="980" y1="487" x2="1712" y2="487" stroke="#1D4ED8" stroke-width="4" stroke-dasharray="14 9"/></svg>
+<p style="position:absolute;left:1716px;top:452px;width:90px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:1px;line-height:1.3;text-transform:uppercase;color:#1D4ED8" data-build-in="fade 2 auto">Men</p>
+<div style="position:absolute;left:128px;top:383px;width:16px;height:16px;background:#1D4ED8" data-build-in="rise 2 auto"></div>
+<p style="position:absolute;left:156px;top:374px;width:700px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#121212" data-build-in="rise 2 auto">Men · Boys</p>
+<p style="position:absolute;left:118px;top:410px;width:800px;font-family:'Archivo', Arial, sans-serif;font-size:210px;font-weight:900;line-height:0.9;letter-spacing:-8px;color:#1D4ED8" data-build-in="rise 2 auto">2.43 m</p>
+<svg viewBox="0 0 1920 1080" width="1920" height="1080" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-build-in="left 3 auto"><line x1="980" y1="519" x2="1712" y2="519" stroke="#F05A22" stroke-width="4" stroke-dasharray="14 9"/></svg>
+<p style="position:absolute;left:1716px;top:526px;width:100px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:0px;line-height:1.3;text-transform:uppercase;color:#C2410C" data-build-in="fade 3 auto">Women</p>
+<div style="position:absolute;left:128px;top:671px;width:16px;height:16px;background:#F05A22" data-build-in="rise 3 auto"></div>
+<p style="position:absolute;left:156px;top:662px;width:700px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#121212" data-build-in="rise 3 auto">Women · Girls</p>
+<p style="position:absolute;left:118px;top:698px;width:800px;font-family:'Archivo', Arial, sans-serif;font-size:210px;font-weight:900;line-height:0.9;letter-spacing:-8px;color:#F05A22" data-build-in="rise 3 auto">2.24 m</p>
+<svg viewBox="0 0 1920 1080" width="1920" height="1080" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-build-in="fade 4 auto"><line x1="1370" y1="506" x2="1370" y2="881" stroke="#121212" stroke-opacity="0.6" stroke-width="2"/><path d="M1361 504 L1370 489 L1379 504 Z" fill="#121212" fill-opacity="0.6"/><path d="M1361 883 L1370 898 L1379 883 Z" fill="#121212" fill-opacity="0.6"/></svg>
+<p style="position:absolute;left:1392px;top:736px;width:330px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:1px;line-height:1.35;text-transform:uppercase;color:#6B6A66" data-build-in="fade 4 auto">Measured at the centre of the court</p>
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:rgba(18,18,18,0.1)"></div>
+<div id="progress" style="position:absolute;left:0px;top:0px;width:640px;height:8px;background:#F05A22"></div>
+<aside>The net is measured in the middle of the court, from the floor to the top of the net. For men it is 2.43 metres, for women 2.24 metres, so the women’s net is 19 centimetres lower. The red and white rods are the antennas: they mark the sides of the court, and the ball must pass between them. Beach volleyball uses the same heights. For younger players the net is often lower, depending on the age group and the competition.</aside>
+</section>
+<section id="team" data-transition="magic" style="background:#F2EDE3;color:#121212;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<div style="position:absolute;left:1000px;top:0px;width:920px;height:1080px;background:#E4DACA" data-build-in="right 1 auto"></div>
+<img src="assets/team.webp" alt="A volleyball team in a huddle with their hands joined above their heads" style="position:absolute;left:953px;top:12px;width:967px;height:1068px;object-fit:contain" data-build-in="rise 1 auto">
+<p style="position:absolute;left:128px;top:96px;width:1000px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#6B6A66" data-build-in="fade 1 auto">03 — Team composition</p>
+<p style="position:absolute;left:1392px;top:96px;width:400px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;text-align:right;color:#121212" data-build-in="fade 1 auto">03 / 06</p>
+<p style="position:absolute;left:122px;top:150px;width:860px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;color:#121212" data-build-in="left 1 auto">The team</p>
+<p style="position:absolute;left:112px;top:296px;width:260px;font-family:'Archivo', Arial, sans-serif;font-size:330px;font-weight:900;line-height:0.86;letter-spacing:-12px;color:#F05A22" data-build-in="scale 2 auto">6</p>
+<p style="position:absolute;left:350px;top:372px;width:560px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#121212" data-build-in="fade 3 auto">Players on court</p>
+<p style="position:absolute;left:350px;top:410px;width:560px;font-family:'Archivo', Arial, sans-serif;font-size:36px;font-weight:600;line-height:1.22;letter-spacing:-0.5px;color:#121212" data-build-in="fade 3 auto">Three at the net,<br>three in the back row.</p>
+<div style="position:absolute;left:128px;top:640px;width:240px;height:3px;background:#121212" data-build-in="rise 4 auto"></div>
+<p style="position:absolute;left:124px;top:664px;width:240px;font-family:'Archivo', Arial, sans-serif;font-size:100px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#121212" data-build-in="rise 4 auto">12</p>
+<p style="position:absolute;left:128px;top:770px;width:236px;font-family:'Archivo', Arial, sans-serif;font-size:28px;font-weight:500;line-height:1.25;color:#121212" data-build-in="rise 4 auto">players in a squad</p>
+<div style="position:absolute;left:398px;top:640px;width:240px;height:3px;background:#121212" data-build-in="rise 5 auto"></div>
+<p style="position:absolute;left:394px;top:664px;width:240px;font-family:'Archivo', Arial, sans-serif;font-size:100px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#121212" data-build-in="rise 5 auto">14</p>
+<p style="position:absolute;left:398px;top:770px;width:236px;font-family:'Archivo', Arial, sans-serif;font-size:28px;font-weight:500;line-height:1.25;color:#121212" data-build-in="rise 5 auto">at top events, with 2 liberos</p>
+<div style="position:absolute;left:668px;top:640px;width:240px;height:3px;background:#121212" data-build-in="rise 6 auto"></div>
+<p style="position:absolute;left:664px;top:664px;width:240px;font-family:'Archivo', Arial, sans-serif;font-size:100px;font-weight:900;line-height:0.9;letter-spacing:-4px;color:#121212" data-build-in="rise 6 auto">6</p>
+<p style="position:absolute;left:668px;top:770px;width:236px;font-family:'Archivo', Arial, sans-serif;font-size:28px;font-weight:500;line-height:1.25;color:#121212" data-build-in="rise 6 auto">substitutions per set</p>
+<p style="position:absolute;left:128px;top:890px;width:800px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:1px;line-height:1.4;text-transform:uppercase;color:#6B6A66" data-build-in="fade 7 auto">Libero = defensive specialist in a different colour</p>
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:rgba(18,18,18,0.1)"></div>
+<div id="progress" style="position:absolute;left:0px;top:0px;width:960px;height:8px;background:#F05A22"></div>
+<aside>A team has six players on the court: three at the net and three in the back row. A squad can have up to 12 players, and at top international events up to 14, but then two of them must be liberos. The libero is a defensive specialist who plays only in the back row and wears a different colour. Each team can make six substitutions per set. Photo: U.S. women’s team huddle, CISM 2007, U.S. Army, CC BY 2.0, Wikimedia Commons (background removed).</aside>
+</section>
+<section id="positions" data-transition="magic" style="background:#F2EDE3;color:#121212;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<p style="position:absolute;left:128px;top:96px;width:1000px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#6B6A66" data-build-in="fade 1 auto">04 — Positions and responsibilities</p>
+<p style="position:absolute;left:1392px;top:96px;width:400px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;text-align:right;color:#6B6A66" data-build-in="fade 1 auto">04 / 06</p>
+<p style="position:absolute;left:122px;top:150px;width:1640px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;color:#121212" data-build-in="left 1 auto">Player positions</p>
+<svg aria-label="Half court showing where the setter plays" viewBox="0 0 304 304" width="304" height="304" style="position:absolute;left:128px;top:336px;width:304px;height:304px" data-build-in="scale 1 auto"><rect x="199.6" y="111.3" width="95.3" height="190.7" fill="#F05A22"/><rect x="9" y="16" width="286" height="286" fill="none" stroke="#121212" stroke-width="3"/><line x1="9" y1="111.3" x2="295" y2="111.3" stroke="#121212" stroke-width="2"/><line x1="104.3" y1="16" x2="104.3" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="199.7" y1="16" x2="199.7" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="0" y1="8" x2="304" y2="8" stroke="#121212" stroke-width="6"/><circle cx="247.3" cy="206.7" r="15" fill="#121212"/></svg>
+<p style="position:absolute;left:128px;top:664px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:38px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 1 auto">Setter</p>
+<p style="position:absolute;left:128px;top:756px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:28px;font-weight:400;line-height:1.3;color:#6B6A66" data-build-in="rise 1 auto">Makes the second touch and sets up every attack.</p>
+<svg aria-label="Half court showing where the outside hitter plays" viewBox="0 0 304 304" width="304" height="304" style="position:absolute;left:468px;top:336px;width:304px;height:304px" data-build-in="scale 2 auto"><rect x="199.6" y="16" width="95.3" height="95.3" fill="#F05A22"/><rect x="9.0" y="111.3" width="95.3" height="190.7" fill="#F05A22"/><rect x="9" y="16" width="286" height="286" fill="none" stroke="#121212" stroke-width="3"/><line x1="9" y1="111.3" x2="295" y2="111.3" stroke="#121212" stroke-width="2"/><line x1="104.3" y1="16" x2="104.3" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="199.7" y1="16" x2="199.7" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="0" y1="8" x2="304" y2="8" stroke="#121212" stroke-width="6"/><circle cx="247.3" cy="63.7" r="15" fill="#121212"/><circle cx="56.7" cy="206.7" r="15" fill="#121212"/></svg>
+<p style="position:absolute;left:468px;top:664px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:38px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 2 auto">Outside hitter</p>
+<p style="position:absolute;left:468px;top:756px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:28px;font-weight:400;line-height:1.3;color:#6B6A66" data-build-in="rise 2 auto">Main attacker on the left; also receives the serve.</p>
+<svg aria-label="Half court showing where the middle blocker plays" viewBox="0 0 304 304" width="304" height="304" style="position:absolute;left:808px;top:336px;width:304px;height:304px" data-build-in="scale 3 auto"><rect x="104.3" y="16" width="95.3" height="95.3" fill="#F05A22"/><rect x="9" y="16" width="286" height="286" fill="none" stroke="#121212" stroke-width="3"/><line x1="9" y1="111.3" x2="295" y2="111.3" stroke="#121212" stroke-width="2"/><line x1="104.3" y1="16" x2="104.3" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="199.7" y1="16" x2="199.7" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="0" y1="8" x2="304" y2="8" stroke="#121212" stroke-width="6"/><circle cx="152" cy="63.7" r="15" fill="#121212"/></svg>
+<p style="position:absolute;left:808px;top:664px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:38px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 3 auto">Middle blocker</p>
+<p style="position:absolute;left:808px;top:756px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:28px;font-weight:400;line-height:1.3;color:#6B6A66" data-build-in="rise 3 auto">Blocks in the middle and hits fast attacks.</p>
+<svg aria-label="Half court showing where the opposite plays" viewBox="0 0 304 304" width="304" height="304" style="position:absolute;left:1148px;top:336px;width:304px;height:304px" data-build-in="scale 4 auto"><rect x="9.0" y="16" width="95.3" height="95.3" fill="#F05A22"/><rect x="9" y="16" width="286" height="286" fill="none" stroke="#121212" stroke-width="3"/><line x1="9" y1="111.3" x2="295" y2="111.3" stroke="#121212" stroke-width="2"/><line x1="104.3" y1="16" x2="104.3" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="199.7" y1="16" x2="199.7" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="0" y1="8" x2="304" y2="8" stroke="#121212" stroke-width="6"/><circle cx="56.7" cy="63.7" r="15" fill="#121212"/></svg>
+<p style="position:absolute;left:1148px;top:664px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:38px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 4 auto">Opposite</p>
+<p style="position:absolute;left:1148px;top:756px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:28px;font-weight:400;line-height:1.3;color:#6B6A66" data-build-in="rise 4 auto">Attacks from the right, opposite the setter.</p>
+<svg aria-label="Half court showing where the libero plays" viewBox="0 0 304 304" width="304" height="304" style="position:absolute;left:1488px;top:336px;width:304px;height:304px" data-build-in="scale 5 auto"><rect x="104.3" y="111.3" width="95.3" height="190.7" fill="#F05A22"/><rect x="9" y="16" width="286" height="286" fill="none" stroke="#121212" stroke-width="3"/><line x1="9" y1="111.3" x2="295" y2="111.3" stroke="#121212" stroke-width="2"/><line x1="104.3" y1="16" x2="104.3" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="199.7" y1="16" x2="199.7" y2="302" stroke="#121212" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 7"/><line x1="0" y1="8" x2="304" y2="8" stroke="#121212" stroke-width="6"/><circle cx="152" cy="206.7" r="15" fill="#121212"/></svg>
+<p style="position:absolute;left:1488px;top:664px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:38px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 5 auto">Libero</p>
+<p style="position:absolute;left:1488px;top:756px;width:304px;font-family:'Archivo', Arial, sans-serif;font-size:28px;font-weight:400;line-height:1.3;color:#6B6A66" data-build-in="rise 5 auto">Back-row defender in a different colour.</p>
+<p style="position:absolute;left:128px;top:300px;width:300px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:3px;line-height:1.3;text-transform:uppercase;color:#121212" data-build-in="fade 1 auto">Net ↑</p>
+<div style="position:absolute;left:128px;top:884px;width:1664px;height:2px;background:rgba(18,18,18,0.18)" data-build-in="fade 6 auto"></div>
+<p style="position:absolute;left:128px;top:902px;width:1664px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:1px;line-height:1.4;text-transform:uppercase;color:#121212" data-build-in="fade 6 auto">Rotation — after winning back the serve, every player moves one zone clockwise</p>
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:rgba(18,18,18,0.1)"></div>
+<div id="progress" style="position:absolute;left:0px;top:0px;width:1280px;height:8px;background:#F05A22"></div>
+<aside>Each small court shows where a player stands at the start: the net is at the top. The setter makes the second touch and sets up the attacks. The two outside hitters attack from the left and also receive the serve. The middle blockers block in the middle of the net and hit fast attacks. The opposite plays opposite the setter and attacks from the right. The libero plays only in the back row, usually instead of a middle blocker, wears a different colour and may not serve, block or spike. When a team wins back the serve, every player rotates one zone clockwise.</aside>
+</section>
+<section id="skills" data-transition="magic" style="background:#F2EDE3;color:#121212;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<p style="position:absolute;left:128px;top:96px;width:1000px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#6B6A66" data-build-in="fade 1 auto">05 — Basic technical skills</p>
+<p style="position:absolute;left:1392px;top:96px;width:400px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;text-align:right;color:#6B6A66" data-build-in="fade 1 auto">05 / 06</p>
+<p style="position:absolute;left:122px;top:150px;width:1640px;font-family:'Archivo', Arial, sans-serif;font-size:120px;font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;color:#121212" data-build-in="left 1 auto">Six basic skills</p>
+<div style="position:absolute;left:128px;top:560px;width:257px;height:260px;background:#1D4ED8" data-build-in="scale 1 auto"></div>
+<img src="assets/skill-serve.webp" alt="A player doing a serve" style="position:absolute;left:111px;top:298px;width:291px;height:522px;object-fit:contain" data-build-in="rise 1 auto">
+<p style="position:absolute;left:128px;top:842px;width:257px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.2;color:#6B6A66" data-build-in="rise 1 auto">01</p>
+<p style="position:absolute;left:128px;top:872px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 1 auto">Serve</p>
+<p style="position:absolute;left:128px;top:916px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:26px;font-weight:400;line-height:1.25;color:#6B6A66" data-build-in="rise 1 auto">starts the rally</p>
+<div style="position:absolute;left:409px;top:560px;width:257px;height:260px;background:#F05A22" data-build-in="scale 2 auto"></div>
+<img src="assets/skill-pass.webp" alt="A player doing a pass" style="position:absolute;left:372px;top:575px;width:330px;height:245px;object-fit:contain" data-build-in="rise 2 auto">
+<p style="position:absolute;left:409px;top:842px;width:257px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.2;color:#6B6A66" data-build-in="rise 2 auto">02</p>
+<p style="position:absolute;left:409px;top:872px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 2 auto">Pass</p>
+<p style="position:absolute;left:409px;top:916px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:26px;font-weight:400;line-height:1.25;color:#6B6A66" data-build-in="rise 2 auto">receives the serve</p>
+<div style="position:absolute;left:690px;top:560px;width:257px;height:260px;background:#1D4ED8" data-build-in="scale 3 auto"></div>
+<img src="assets/skill-set.webp" alt="A player doing a set" style="position:absolute;left:666px;top:329px;width:306px;height:491px;object-fit:contain" data-build-in="rise 3 auto">
+<p style="position:absolute;left:690px;top:842px;width:257px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.2;color:#6B6A66" data-build-in="rise 3 auto">03</p>
+<p style="position:absolute;left:690px;top:872px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 3 auto">Set</p>
+<p style="position:absolute;left:690px;top:916px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:26px;font-weight:400;line-height:1.25;color:#6B6A66" data-build-in="rise 3 auto">sets up the attack</p>
+<div style="position:absolute;left:971px;top:560px;width:257px;height:260px;background:#F05A22" data-build-in="scale 4 auto"></div>
+<img src="assets/skill-attack.webp" alt="A player doing a attack" style="position:absolute;left:944px;top:298px;width:310px;height:522px;object-fit:contain" data-build-in="rise 4 auto">
+<p style="position:absolute;left:971px;top:842px;width:257px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.2;color:#6B6A66" data-build-in="rise 4 auto">04</p>
+<p style="position:absolute;left:971px;top:872px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 4 auto">Attack</p>
+<p style="position:absolute;left:971px;top:916px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:26px;font-weight:400;line-height:1.25;color:#6B6A66" data-build-in="rise 4 auto">hits the ball down</p>
+<div style="position:absolute;left:1252px;top:560px;width:257px;height:260px;background:#1D4ED8" data-build-in="scale 5 auto"></div>
+<img src="assets/skill-block.webp" alt="A player doing a block" style="position:absolute;left:1234px;top:298px;width:293px;height:522px;object-fit:contain" data-build-in="rise 5 auto">
+<p style="position:absolute;left:1252px;top:842px;width:257px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.2;color:#6B6A66" data-build-in="rise 5 auto">05</p>
+<p style="position:absolute;left:1252px;top:872px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 5 auto">Block</p>
+<p style="position:absolute;left:1252px;top:916px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:26px;font-weight:400;line-height:1.25;color:#6B6A66" data-build-in="rise 5 auto">stops the attack</p>
+<div style="position:absolute;left:1533px;top:560px;width:257px;height:260px;background:#F05A22" data-build-in="scale 6 auto"></div>
+<img src="assets/skill-dig.webp" alt="A player doing a dig" style="position:absolute;left:1512px;top:481px;width:300px;height:339px;object-fit:contain" data-build-in="rise 6 auto">
+<p style="position:absolute;left:1533px;top:842px;width:257px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.2;color:#6B6A66" data-build-in="rise 6 auto">06</p>
+<p style="position:absolute;left:1533px;top:872px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:40px;font-weight:900;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;color:#121212" data-build-in="rise 6 auto">Dig</p>
+<p style="position:absolute;left:1533px;top:916px;width:257px;font-family:'Archivo', Arial, sans-serif;font-size:26px;font-weight:400;line-height:1.25;color:#6B6A66" data-build-in="rise 6 auto">saves a hard ball</p>
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:rgba(18,18,18,0.1)"></div>
+<div id="progress" style="position:absolute;left:0px;top:0px;width:1600px;height:8px;background:#F05A22"></div>
+<aside>These are the six basic skills. The serve starts every rally from behind the end line. The pass, or bump, is made with the forearms to receive the serve. The set is an overhead pass with the fingertips that prepares the ball for the attacker. The attack, or spike, is a jump and a hard hit down into the other court. The block is a jump at the net to stop the attack. And the dig saves a hard attack close to the floor. A team may touch the ball three times, usually pass, set and attack. Photos, Wikimedia Commons, backgrounds removed: serve by pjt56 (CC BY-SA 3.0); pass and dig by Erik Drost (CC BY 2.0); set by Grzegorz Jereczek (CC BY-SA 2.0); attack and block by John Loo (CC BY 2.0).</aside>
+</section>
+<section id="world" data-transition="fade" style="background:#1D4ED8;color:#F2EDE3;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<div style="position:absolute;left:740px;top:0px;width:1180px;height:1080px;background:radial-gradient(circle at 55% 67%, rgba(201,213,255,0.32) 0%, rgba(201,213,255,0) 48%)"></div>
+<img src="assets/globe.webp" alt="Globe centred on Europe and the Atlantic, with Lithuania in orange and Italy in black" style="position:absolute;left:870px;top:200px;width:1040px;height:880px;object-fit:contain" data-build-in="scale 1 auto">
+<iframe sandbox="" tabindex="-1" aria-hidden="true" style="position:absolute;left:1484px;top:484px;width:160px;height:160px;border:0;background:transparent;pointer-events:none" data-build-in="fade 2 auto" srcdoc="&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;width:100%;height:100%;background:transparent;overflow:hidden}i{position:absolute;left:80px;top:79.5px;width:124px;height:124px;margin:-62px 0 0 -62px;box-sizing:border-box;border:3px solid #F05A22;border-radius:50%;opacity:0;transform:scale(.14);animation:p 2.8s cubic-bezier(.16,.6,.3,1) infinite}i+i{animation-delay:1.4s}@keyframes p{0%{opacity:0;transform:scale(.14)}10%{opacity:.95}100%{opacity:0;transform:scale(1)}}@media (prefers-reduced-motion:reduce){i{animation:none;opacity:.5;transform:scale(.45)}i+i{display:none}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+<p style="position:absolute;left:128px;top:96px;width:1000px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#C9D5FF" data-build-in="fade 1 auto">06 — Volleyball today</p>
+<p style="position:absolute;left:1392px;top:96px;width:400px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:2px;line-height:1.3;text-transform:uppercase;text-align:right;color:#C9D5FF" data-build-in="fade 1 auto">06 / 06</p>
+<p style="position:absolute;left:122px;top:150px;width:760px;font-family:'Archivo', Arial, sans-serif;font-size:96px;font-weight:900;line-height:0.95;letter-spacing:-3px;text-transform:uppercase;color:#F2EDE3" data-build-in="left 1 auto">Lithuania,<br>Europe and<br>the world</p>
+<div style="position:absolute;left:128px;top:486px;width:640px;height:2px;background:rgba(242,237,227,0.3)" data-build-in="rise 2 auto"></div>
+<p style="position:absolute;left:128px;top:504px;width:640px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#C9D5FF" data-build-in="rise 2 auto">Lithuania · 2026</p>
+<p style="position:absolute;left:128px;top:540px;width:660px;font-family:'Archivo', Arial, sans-serif;font-size:32px;font-weight:500;line-height:1.25;color:#F2EDE3" data-build-in="rise 2 auto">Šiauliai co-hosted the U18 Women’s European Championship.</p>
+<div style="position:absolute;left:128px;top:636px;width:640px;height:2px;background:rgba(242,237,227,0.3)" data-build-in="rise 3 auto"></div>
+<p style="position:absolute;left:128px;top:654px;width:640px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#C9D5FF" data-build-in="rise 3 auto">Europe · 2025</p>
+<p style="position:absolute;left:128px;top:690px;width:660px;font-family:'Archivo', Arial, sans-serif;font-size:32px;font-weight:500;line-height:1.25;color:#F2EDE3" data-build-in="rise 3 auto">Italy won both World Championships, men’s and women’s.</p>
+<div style="position:absolute;left:128px;top:786px;width:640px;height:2px;background:rgba(242,237,227,0.3)" data-build-in="rise 4 auto"></div>
+<p style="position:absolute;left:128px;top:804px;width:640px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;letter-spacing:2px;line-height:1.3;text-transform:uppercase;color:#C9D5FF" data-build-in="rise 4 auto">World · 1895</p>
+<p style="position:absolute;left:128px;top:840px;width:660px;font-family:'Archivo', Arial, sans-serif;font-size:32px;font-weight:500;line-height:1.25;color:#F2EDE3" data-build-in="rise 4 auto">Invented in Holyoke, USA. Olympic sport since 1964.</p>
+<div style="position:absolute;left:1556px;top:556px;width:16px;height:16px;border-radius:50%;background:#F05A22;box-shadow:0 0 0 4px #F2EDE3, 0 0 0 12px rgba(242,237,227,0.25)" data-build-in="pop 2 auto"></div>
+<p style="position:absolute;left:1586px;top:546px;width:170px;font-family:'Archivo', Arial, sans-serif;font-size:24px;font-weight:800;letter-spacing:1px;line-height:1.4;text-transform:uppercase;text-align:center;color:#121212;background:#F05A22" data-build-in="pop 2 auto">Lithuania</p>
+<div style="position:absolute;left:1541px;top:684px;width:16px;height:16px;border-radius:50%;background:#121212;box-shadow:0 0 0 4px #F2EDE3, 0 0 0 12px rgba(242,237,227,0.25)" data-build-in="pop 3 auto"></div>
+<p style="position:absolute;left:1571px;top:676px;width:100px;font-family:'Archivo', Arial, sans-serif;font-size:24px;font-weight:800;letter-spacing:1px;line-height:1.4;text-transform:uppercase;text-align:center;color:#F2EDE3;background:#121212" data-build-in="pop 3 auto">Italy</p>
+<div style="position:absolute;left:1046px;top:579px;width:16px;height:16px;border-radius:50%;background:#F2EDE3;box-shadow:0 0 0 4px #F2EDE3, 0 0 0 12px rgba(242,237,227,0.25)" data-build-in="pop 4 auto"></div>
+<p style="position:absolute;left:1076px;top:570px;width:210px;font-family:'Archivo', Arial, sans-serif;font-size:24px;font-weight:800;letter-spacing:1px;line-height:1.4;text-transform:uppercase;text-align:center;color:#121212;background:#F2EDE3" data-build-in="pop 4 auto">Holyoke, USA</p>
+<div style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:rgba(242,237,227,0.22)"></div>
+<div id="progress" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:#F05A22"></div>
+<aside>Lithuania: in summer 2026 Šiauliai and Riga hosted the Women’s Under-18 European Championship together, and in 2024 Vilnius hosted the CEV Beach Volley Nations Cup, where Lithuania’s men’s pair won their group. Lithuanian clubs play in the national league and in the Baltic Volleyball League. Europe is the strongest volleyball continent: in 2025 Italy won both the men’s and the women’s World Championships, and France’s men won Olympic gold in Tokyo and in Paris. In the world: volleyball was invented in 1895 by William G. Morgan in Holyoke, USA; it has been an Olympic sport since 1964, beach volleyball since 1996, and more than 200 countries belong to the world federation, FIVB. Map data: Natural Earth.</aside>
+</section>
+<section id="thanks" data-transition="fade" style="background:#5B9FD6;color:#121212;font-family:'Archivo', Arial, sans-serif;padding:128px">
+<video poster="assets/sky-still.jpg" muted loop playsinline preload="auto" aria-label="A volleyball flies past the net against a blue sky" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;object-fit:cover"><source src="assets/sky.mp4" type="video/mp4"><source src="assets/sky.webm" type="video/webm"></video>
+<div style="position:absolute;left:0px;top:880px;width:1920px;height:200px;background:linear-gradient(0deg, rgba(18,18,18,0.7) 0%, rgba(18,18,18,0) 100%)"></div>
+<p style="position:absolute;left:104px;top:190px;width:1200px;font-family:'Archivo', Arial, sans-serif;font-size:300px;font-weight:900;line-height:0.86;letter-spacing:-12px;text-transform:uppercase;color:#121212" data-build-in="rise 1 auto">Thank</p>
+<p style="position:absolute;left:104px;top:448px;width:1200px;font-family:'Archivo', Arial, sans-serif;font-size:300px;font-weight:900;line-height:0.86;letter-spacing:-12px;text-transform:uppercase;color:#121212" data-build-in="rise 2 auto">you</p>
+<p style="position:absolute;left:128px;top:742px;width:900px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:30px;font-weight:700;letter-spacing:3px;line-height:1.3;text-transform:uppercase;color:#121212" data-build-in="fade 3 auto">Any questions?</p>
+<p style="position:absolute;left:128px;top:986px;width:1664px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;letter-spacing:0px;line-height:1.3;color:#E9E4DA" data-build-in="fade 4 auto">Photos: Wikimedia Commons (CC BY / CC BY-SA), authors in the notes · Videos: Mixkit · Map: Natural Earth</p>
+<aside>Thank you for listening! Do you have any questions? Credits, all photos from Wikimedia Commons with backgrounds removed: cover by Zorro2212 (CC BY-SA 3.0); team huddle by the U.S. Army (CC BY 2.0); serve by pjt56 (CC BY-SA 3.0); pass and dig by Erik Drost (CC BY 2.0); set by Grzegorz Jereczek (CC BY-SA 2.0); attack and block by John Loo (CC BY 2.0). Videos: Mixkit (free licence). Map data: Natural Earth (public domain).</aside>
+</section>
+</div></div>
+<div id="ui" class="show" role="toolbar" aria-label="Slideshow controls">
+  <button id="bPrev" type="button" aria-label="Previous slide" title="Previous (←)"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <span class="count" id="count" aria-live="polite">1 / 9</span>
+  <button id="bNext" type="button" aria-label="Next" title="Next (→ or Space)"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <span class="hint" id="hint"><span class="hm">Click or press → to continue</span><span class="ht">Tap to continue</span></span>
+  <span class="sep"></span>
+  <button id="bNotes" type="button" aria-label="Speaker notes" title="Speaker notes (N)"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8.5 9h7M8.5 13h7M8.5 17h4"/></svg></button>
+  <button id="bFull" type="button" aria-label="Full screen" title="Full screen (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+</div>
+<div id="notes" role="dialog" aria-label="Speaker notes"><h2 id="notesHead">Notes</h2><p id="notesBody"></p></div>
+<script>
+(() => {
+  const W = 1920, H = 1080;
+  const EFX = {fade: '', rise: 'translateY(48px)', drop: 'translateY(-48px)', left: 'translateX(-72px)',
+               right: 'translateX(72px)', scale: 'scale(0.8)', pop: 'scale(0.5)'};
+  const EASE = 'cubic-bezier(0.2, 0.7, 0.2, 1)', POP = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+  const TEASE = 'cubic-bezier(0.33, 0.01, 0.2, 1)';
+  const BUILD = 380, GAP = 520, FIRST = 600, TMS = {fade: 320, push: 420, magic: 480};
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (id) => document.getElementById(id);
+  const stage = $('stage'), ui = $('ui'), notes = $('notes');
+
+  const slides = [...stage.children].filter((e) => e.tagName === 'SECTION').map((sec) => {
+    const aside = sec.querySelector(':scope > aside');
+    const text = aside ? aside.textContent.trim() : '';
+    if (aside) aside.remove();
+    const frames = [...sec.children];
+    const builds = [];
+    for (const el of frames) {
+      const a = el.getAttribute('data-build-in');
+      if (!a) continue;
+      const t = a.trim().split(/\s+/);
+      builds.push({el, effect: t[0] in EFX ? t[0] : 'fade', order: parseInt(t[1] || '1', 10) || 1,
+                   auto: t.includes('auto'), base: el.style.transform || ''});
+    }
+    const orders = [...new Set(builds.map((b) => b.order))].sort((x, y) => x - y);
+    for (const b of builds) b.step = orders.indexOf(b.order) + 1;
+    return {sec, notes: text, frames, builds, steps: orders.length,
+            transition: sec.getAttribute('data-transition') || 'fade', videos: [...sec.querySelectorAll('video')]};
+  });
+
+  let cur = -1, step = 0, timer = 0, running = [], trans = null, touched = false;
+
+  const view = $('view');
+  function fit() {
+    const w = view.clientWidth, h = view.clientHeight, s = Math.min(w / W, h / H);
+    stage.style.transform = 'translate(' + (w - W * s) / 2 + 'px, ' + (h - H * s) / 2 + 'px) scale(' + s + ')';
+  }
+  function setStep(S, k) {
+    for (const b of S.builds) b.el.style.visibility = b.step <= k ? '' : 'hidden';
+  }
+  function reveal(S, k) {
+    for (const b of S.builds) {
+      if (b.step !== k) continue;
+      b.el.style.visibility = '';
+      if (reduce) continue;
+      const from = ((EFX[b.effect] + ' ' + b.base).trim()) || 'none';
+      running.push(b.el.animate([{opacity: 0, transform: from}, {opacity: 1, transform: b.base || 'none'}],
+        {duration: BUILD, easing: b.effect === 'pop' ? POP : EASE}));
+    }
+  }
+  function autoAt(S, k) {
+    const bs = S.builds.filter((b) => b.step === k);
+    return bs.length > 0 && bs.every((b) => b.auto);
+  }
+  function schedule(delay) {
+    clearTimeout(timer);
+    const S = slides[cur];
+    if (step < S.steps && autoAt(S, step + 1)) timer = setTimeout(advance, reduce ? 0 : delay);
+  }
+  function advance() {
+    const S = slides[cur];
+    if (step >= S.steps) return;
+    step += 1;
+    reveal(S, step);
+    schedule(GAP);
+  }
+  function play(S) { for (const v of S.videos) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } }
+  function pause(S) { for (const v of S.videos) v.pause(); }
+  function rect(el) { return {x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight}; }
+  function box(r) { return {left: r.x + 'px', top: r.y + 'px', width: r.w + 'px', height: r.h + 'px'}; }
+
+  function finishTrans() {
+    const t = trans;
+    if (!t) return;
+    trans = null;
+    for (const a of t.anims) { try { a.cancel(); } catch (e) {} }
+    for (const f of t.cleanup) f();
+    t.A.sec.classList.remove('on');
+    t.A.sec.style.zIndex = t.B.sec.style.zIndex = '';
+    pause(t.A);
+  }
+
+  function runTrans(A, B, kind, dir) {
+    const opt = {duration: TMS[kind] || 320, easing: TEASE, fill: 'forwards'};
+    const anims = [], cleanup = [];
+    A.sec.style.zIndex = '2';
+    B.sec.style.zIndex = '1';
+    if (kind === 'push') {
+      const L = dir < 0 ? -W : W;
+      anims.push(A.sec.animate([{transform: 'translateX(0)'}, {transform: 'translateX(' + (-L) + 'px)'}], opt));
+      anims.push(B.sec.animate([{transform: 'translateX(' + L + 'px)'}, {transform: 'translateX(0)'}], opt));
+    } else if (kind === 'magic') {
+      const bgA = A.sec.style.background, bgB = B.sec.style.background;
+      if (bgA !== bgB) {
+        const veil = document.createElement('div');
+        veil.style.cssText = 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + H + 'px;background:' + bgA;
+        B.sec.insertBefore(veil, B.sec.firstChild);
+        anims.push(veil.animate([{opacity: 1}, {opacity: 0}], opt));
+        cleanup.push(() => veil.remove());
+      }
+      A.sec.style.background = 'transparent';
+      cleanup.push(() => { A.sec.style.background = bgA; });
+      const byId = new Map();
+      for (const el of B.frames) if (el.id) byId.set(el.id, el);
+      const matched = new Set();
+      for (const el of A.frames) {
+        if (el.style.visibility === 'hidden') continue;
+        const m = el.id ? byId.get(el.id) : null;
+        if (m && m.style.visibility !== 'hidden') {
+          matched.add(m);
+          el.style.visibility = 'hidden';
+          cleanup.push(() => { el.style.visibility = ''; });
+          const r0 = rect(el), r1 = rect(m);
+          if (Math.abs(r0.x - r1.x) + Math.abs(r0.y - r1.y) + Math.abs(r0.w - r1.w) + Math.abs(r0.h - r1.h) > 1)
+            anims.push(m.animate([box(r0), box(r1)], opt));
+        } else if (el.tagName === 'IFRAME') {
+          el.style.visibility = 'hidden';
+          cleanup.push(() => { el.style.visibility = ''; });
+        } else {
+          anims.push(el.animate([{opacity: 1}, {opacity: 0}], opt));
+        }
+      }
+      for (const el of B.frames) {
+        if (matched.has(el) || el.style.visibility === 'hidden') continue;
+        anims.push(el.animate([{opacity: 0}, {opacity: 1}], opt));
+      }
+    } else {
+      anims.push(A.sec.animate([{opacity: 1}, {opacity: 0}], opt));
+    }
+    trans = {A, B, anims, cleanup};
+    Promise.all(anims.map((a) => a.finished)).then(() => { if (trans && trans.anims === anims) finishTrans(); }, () => {});
+  }
+
+  function go(to, dir, instant) {
+    if (to < 0 || to >= slides.length) return;
+    finishTrans();
+    clearTimeout(timer);
+    for (const a of running) { try { a.finish(); } catch (e) {} }
+    running = [];
+    const A = cur >= 0 ? slides[cur] : null, B = slides[to];
+    if (A === B) return;
+    cur = to;
+    step = dir < 0 ? B.steps : 0;
+    setStep(B, step);
+    B.sec.classList.add('on');
+    play(B);
+    const kind = !A || instant || reduce ? 'none' : (dir > 0 ? A.transition : B.transition);
+    if (A && kind !== 'none') runTrans(A, B, kind, dir);
+    else if (A) { A.sec.classList.remove('on'); pause(A); }
+    if (dir > 0) schedule(FIRST);
+    update();
+  }
+
+  function next() {
+    hint();
+    if (trans) finishTrans();
+    const S = slides[cur];
+    if (step < S.steps) { clearTimeout(timer); advance(); }
+    else go(cur + 1, 1);
+  }
+  function prev() { hint(); go(cur - 1, -1); }
+
+  function update() {
+    $('count').textContent = (cur + 1) + ' / ' + slides.length;
+    $('bPrev').disabled = cur === 0;
+    try { history.replaceState(null, '', '#' + (cur + 1)); } catch (e) {}
+    $('notesHead').textContent = 'Notes · ' + (cur + 1) + ' / ' + slides.length;
+    $('notesBody').textContent = slides[cur].notes || 'No notes for this slide.';
+  }
+  function hint() { if (!touched) { touched = true; $('hint').classList.add('gone'); } }
+  function toggleNotes() { notes.classList.toggle('open'); $('bNotes').classList.toggle('on', notes.classList.contains('open')); }
+  function toggleFull() {
+    const d = document, e = d.documentElement;
+    if (!(d.fullscreenElement || d.webkitFullscreenElement)) (e.requestFullscreen || e.webkitRequestFullscreen || (() => {})).call(e);
+    else (d.exitFullscreen || d.webkitExitFullscreen).call(d);
+  }
+
+  let uiTimer = 0;
+  function showUI() {
+    ui.classList.add('show');
+    document.body.classList.remove('idle');
+    clearTimeout(uiTimer);
+    uiTimer = setTimeout(() => {
+      if (!ui.matches(':hover') && !notes.classList.contains('open')) { ui.classList.remove('show'); document.body.classList.add('idle'); }
+    }, 2800);
+  }
+
+  addEventListener('resize', fit);
+  addEventListener('hashchange', () => {
+    const n = parseInt(location.hash.slice(1), 10) - 1;
+    if (n >= 0 && n < slides.length && n !== cur) go(n, n < cur ? -1 : 1, true);
+  });
+  addEventListener('mousemove', showUI, {passive: true});
+  addEventListener('keydown', (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const k = e.key;
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(k)) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); prev(); }
+    else if (k === 'Home') { e.preventDefault(); go(0, 1, true); }
+    else if (k === 'End') { e.preventDefault(); go(slides.length - 1, -1, true); }
+    else if (k === 'f' || k === 'F') toggleFull();
+    else if (k === 'n' || k === 'N') toggleNotes();
+    else return;
+    showUI();
+  });
+  let swiped = 0, sx = null, sy = 0;
+  addEventListener('touchstart', (e) => { const t = e.touches[0]; sx = t.clientX; sy = t.clientY; }, {passive: true});
+  addEventListener('touchend', (e) => {
+    if (sx === null) return;
+    const t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+    sx = null;
+    if (e.target.closest && e.target.closest('#ui,#notes')) return;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { swiped = Date.now(); dx < 0 ? next() : prev(); }
+  }, {passive: true});
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('#ui,#notes')) return;
+    if (Date.now() - swiped < 500) return;
+    next();
+  });
+  $('bPrev').addEventListener('click', prev);
+  $('bNext').addEventListener('click', next);
+  $('bNotes').addEventListener('click', toggleNotes);
+  $('bFull').addEventListener('click', toggleFull);
+
+  fit();
+  const first = [...slides[0].sec.querySelectorAll('img')].map((i) => (i.decode ? i.decode().catch(() => {}) : null));
+  const fonts = document.fonts ? [document.fonts.load('900 100px "Archivo"'), document.fonts.load('500 24px "Archivo"'),
+    document.fonts.load('500 24px "JetBrains Mono"'), document.fonts.load('700 24px "JetBrains Mono"')] : [];
+  Promise.race([Promise.all([...fonts, ...first]).catch(() => {}), new Promise((r) => setTimeout(r, 3500))]).then(() => {
+    const h = parseInt(location.hash.slice(1), 10);
+    go(h >= 1 && h <= slides.length ? h - 1 : 0, 1, true);
+    document.body.classList.add('ready');
+    showUI();
+  });
+})();
+</script>
+</body>
+</html>
