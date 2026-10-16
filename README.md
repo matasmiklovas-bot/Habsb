@@ -1,5 +1,5 @@
 # Volleyball
 
-Presentation: https://raw.githack.com/matasmiklovas-bot/Habsb/main/index.html
+Presentation: https://matasmiklovas-bot.github.io/Habsb/
 
 Controls: click, Space or → for next · ← back · F full screen · N speaker notes.
