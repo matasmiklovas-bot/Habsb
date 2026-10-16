@@ -435,8 +435,10 @@ body.idle,body.idle *{cursor:none!important}
     hint();
     if (trans) finishTrans();
     const S = slides[cur];
-    if (step < S.steps) { clearTimeout(timer); advance(); }
-    else go(cur + 1, 1);
+    if (step < S.steps) {
+      clearTimeout(timer);
+      while (step < S.steps) { step += 1; reveal(S, step); }
+    } else go(cur + 1, 1);
   }
   function prev() { hint(); go(cur - 1, -1); }
 
